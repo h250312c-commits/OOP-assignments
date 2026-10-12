@@ -33,18 +33,18 @@ public class BankAccount {
         transactionHistory.add(String.format("Deposited %.2f", amount));
     }
 
-    public boolean withdraw(double amount) {
+    public void withdraw(double amount) throws InsufficientFundsException {
         if (!Double.isFinite(amount) || amount <= 0) {
             throw new IllegalArgumentException("Withdrawal must be finite and positive.");
         }
         if (amount > balance) {
             transactionHistory.add(String.format("Rejected withdrawal of %.2f (insufficient funds)", amount));
-            return false;
+            throw new InsufficientFundsException(
+                    String.format("Withdrawal of %.2f exceeds available balance %.2f.", amount, balance));
         }
 
         balance -= amount;
         transactionHistory.add(String.format("Withdrew %.2f", amount));
-        return true;
     }
 
     public List<String> getTransactionHistory() {

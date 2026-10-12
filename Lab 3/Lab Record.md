@@ -14,6 +14,13 @@ separate grade field: A is 80-100, B is 70-79, C is 60-69, and F is below 60.
 list. Callers cannot alter the account's history, and a previously returned
 snapshot does not change when later transactions occur.
 
+`withdraw()` throws the checked `InsufficientFundsException` when the requested
+amount exceeds the balance and records the rejected transaction. A checked
+exception makes callers explicitly catch or declare this specific failure,
+which is clear when insufficient funds is exceptional. Returning `false` can
+be simpler for expected yes/no outcomes, but callers may accidentally ignore
+the result and lose the reason for failure.
+
 ## 4. Immutable person
 
 `ImmutablePerson` is `final` so subclasses cannot add behavior that undermines

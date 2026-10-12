@@ -15,7 +15,11 @@ public class Lab3 {
         System.out.println("\n3. Bank account transaction history");
         BankAccount account = new BankAccount("BA1001", 500);
         account.deposit(125);
-        account.withdraw(80);
+        try {
+            account.withdraw(80);
+        } catch (InsufficientFundsException exception) {
+            System.out.println("Withdrawal rejected: " + exception.getMessage());
+        }
         List<String> history = account.getTransactionHistory();
         System.out.println("History snapshot: " + history);
         account.deposit(25);
