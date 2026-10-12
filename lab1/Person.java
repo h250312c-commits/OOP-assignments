@@ -1,4 +1,4 @@
-package lab1;
+package Lab1;
 
 public class Person {
     public final String name;
