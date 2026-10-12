@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Lab3 {
@@ -14,6 +16,7 @@ public class Lab3 {
 
         System.out.println("\n3. Bank account transaction history");
         BankAccount account = new BankAccount("BA1001", 500);
+        System.out.println("Account number: " + account.getAccountNumber());
         account.deposit(125);
         try {
             account.withdraw(80);
@@ -43,5 +46,128 @@ public class Lab3 {
         } catch (IllegalArgumentException exception) {
             System.out.println("Temperature below absolute zero rejected: " + exception.getMessage());
         }
+    }
+}
+
+class Student {
+    private String name;
+    private int marks;
+
+    public Student(String name, int marks) {
+        this.name = name;
+        setMarks(marks);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMarks() {
+        return marks;
+    }
+
+    public void setMarks(int marks) {
+        if (marks < 0 || marks > 100) {
+            throw new IllegalArgumentException("Marks must be between 0 and 100.");
+        }
+        this.marks = marks;
+    }
+
+    public char getGrade() {
+        if (marks >= 90) {
+            return 'A';
+        } else if (marks >= 80) {
+            return 'B';
+        } else if (marks >= 70) {
+            return 'C';
+        } else if (marks >= 60) {
+            return 'D';
+        }
+        return 'F';
+    }
+}
+
+class InsufficientFundsException extends Exception {
+    public InsufficientFundsException(String message) {
+        super(message);
+    }
+}
+
+class BankAccount {
+    private final String accountNumber;
+    private double balance;
+    private final List<String> transactionHistory = new ArrayList<>();
+
+    public BankAccount(String accountNumber, double initialBalance) {
+        if (initialBalance < 0) {
+            throw new IllegalArgumentException("Initial balance cannot be negative.");
+        }
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
+        transactionHistory.add("Opening balance: " + initialBalance);
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void deposit(double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Deposit amount must be positive.");
+        }
+        balance += amount;
+        transactionHistory.add("Deposit: " + amount);
+    }
+
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Withdrawal amount must be positive.");
+        }
+        if (amount > balance) {
+            throw new InsufficientFundsException("Insufficient funds for withdrawal of " + amount);
+        }
+        balance -= amount;
+        transactionHistory.add("Withdrawal: " + amount);
+    }
+
+    public List<String> getTransactionHistory() {
+        return Collections.unmodifiableList(new ArrayList<>(transactionHistory));
+    }
+}
+
+final class ImmutablePerson {
+    private final String name;
+    private final int age;
+
+    public ImmutablePerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+
+class Temperature {
+    private final double kelvin;
+
+    public Temperature(double kelvin) {
+        if (kelvin < 0) {
+            throw new IllegalArgumentException("Temperature cannot be below absolute zero.");
+        }
+        this.kelvin = kelvin;
+    }
+
+    public double getCelsius() {
+        return kelvin - 273.15;
+    }
+
+    public double getFahrenheit() {
+        return (getCelsius() * 9.0 / 5.0) + 32.0;
     }
 }

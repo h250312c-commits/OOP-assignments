@@ -20,6 +20,10 @@ public class BankAccount {
         transactionHistory.add(String.format("Opened account with balance %.2f", initialBalance));
     }
 
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
     public double getBalance() {
         return balance;
     }

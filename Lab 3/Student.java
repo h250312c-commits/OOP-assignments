@@ -3,8 +3,8 @@ public class Student {
     private int marks;
 
     public Student(String name, int marks) {
-        setName(name);
-        setMarks(marks);
+        this.name = validateName(name);
+        this.marks = validateMarks(marks);
     }
 
     public String getName() {
@@ -12,10 +12,7 @@ public class Student {
     }
 
     public void setName(String name) {
-        if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("Name cannot be blank.");
-        }
-        this.name = name;
+        this.name = validateName(name);
     }
 
     public int getMarks() {
@@ -23,10 +20,7 @@ public class Student {
     }
 
     public void setMarks(int marks) {
-        if (marks < 0 || marks > 100) {
-            throw new IllegalArgumentException("Marks must be between 0 and 100.");
-        }
-        this.marks = marks;
+        this.marks = validateMarks(marks);
     }
 
     public char getGrade() {
@@ -40,5 +34,19 @@ public class Student {
             return 'C';
         }
         return 'F';
+    }
+
+    private static String validateName(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Name cannot be blank.");
+        }
+        return name;
+    }
+
+    private static int validateMarks(int marks) {
+        if (marks < 0 || marks > 100) {
+            throw new IllegalArgumentException("Marks must be between 0 and 100.");
+        }
+        return marks;
     }
 }
