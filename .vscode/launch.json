@@ -3,6 +3,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Lab4",
+            "request": "launch",
+            "mainClass": "Lab4",
+            "projectName": "Lab4"
+        },
+        {
+            "type": "java",
             "name": "Launch Bank System (BankDemo)",
             "request": "launch",
             "mainClass": "BankDemo",

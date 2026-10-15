@@ -8,6 +8,9 @@ public class Stack<T> {
 
     /** Adds an element to the top of the stack. */
     public void push(T element) {
+        if (element == null) {
+            throw new IllegalArgumentException("Stack element cannot be null.");
+        }
         elements.add(element);
     }
 
@@ -36,6 +39,11 @@ public class Stack<T> {
     /** Returns an immutable bottom-to-top copy of the stack contents. */
     public List<T> snapshot() {
         return List.copyOf(elements);
+    }
+
+    @Override
+    public String toString() {
+        return elements.toString();
     }
 
     /** Rejects top-element operations when no elements are present. */

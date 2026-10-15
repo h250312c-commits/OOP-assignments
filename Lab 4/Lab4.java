@@ -7,12 +7,14 @@ public class Lab4 {
         Student student = new Student("Jordan", 20, "Software Engineering");
         Teacher teacher = new Teacher("Morgan", 35, "Object-Oriented Programming");
 
-        System.out.println("Student and Teacher both inherit Person.display():");
+        System.out.println("Base Person display:");
         person.display();
+
+        System.out.println("\nStudent display (overriding with super.display()):");
         student.display();
-        System.out.println("Course: " + student.getCourse());
+
+        System.out.println("\nTeacher display (overriding with super.display()):");
         teacher.display();
-        System.out.println("Subject: " + teacher.getSubject());
 
         System.out.println("\n3. Vehicle constructor order");
         ElectricCar electricCar = new ElectricCar("EV-1", 4, 80);
@@ -39,5 +41,11 @@ public class Lab4 {
         System.out.println("Top item: " + stack.peek());
         System.out.println("Popped: " + stack.pop());
         System.out.println("Remaining size: " + stack.size());
+        System.out.println("Popped: " + stack.pop());
+        try {
+            stack.pop();
+        } catch (IllegalStateException exception) {
+            System.out.println("Pop from empty stack correctly rejected: " + exception.getMessage());
+        }
     }
 }

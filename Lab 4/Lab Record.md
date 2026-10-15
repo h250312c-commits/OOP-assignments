@@ -2,10 +2,17 @@
 
 ## 1-2. Person, Student, and Teacher
 
-`Student` and `Teacher` extend `Person`, so both reuse its name, age, and
-inherited `display()` method. They call `super(name, age)` to initialize the
-shared Person state, then store their own course or subject. The demo invokes
-the inherited method on both subclasses.
+`Student` and `Teacher` extend `Person`, reusing its `name` and `age` state.
+Their constructors call `super(name, age)` to initialize the superclass portion
+before initializing `course` or `subject`.
+
+Both subclasses override the inherited `display()` method to include their
+specialized fields. Inside the overridden method, `super.display()` reuses the
+superclass printing logic, followed by subclass-specific details:
+
+- `Person.display()` prints `Name: ...` and `age: ...`.
+- `Student.display()` calls `super.display()` and prints `Course: ...`.
+- `Teacher.display()` calls `super.display()` and prints `Subject: ...`.
 
 ## 3. Vehicle constructor order
 
@@ -59,4 +66,6 @@ class Dog extends Animal {
 as `push`, `pop`, and `peek`. If a stack extended `ArrayList`, callers could
 also use methods such as `add(index, value)`, `remove(index)`, or `clear()`,
 which expose arbitrary list behavior and can violate the expected last-in,
-first-out abstraction. Composition keeps those list operations private.
+first-out abstraction. Composition keeps those list operations private and
+encapsulates LIFO integrity. Attempting to `pop` or `peek` an empty stack throws
+an `IllegalStateException`.

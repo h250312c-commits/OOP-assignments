@@ -43,13 +43,14 @@ public class Lab8 {
 
         System.out.println("\n4. Word frequencies");
         System.out.print("Enter a paragraph (one line): ");
-        Scanner scanner = new Scanner(System.in);
         String paragraph;
-        if (scanner.hasNextLine()) {
-            paragraph = scanner.nextLine();
-        } else {
-            paragraph = "Hello world and hello again to OOP";
-            System.out.println(paragraph);
+        try (Scanner scanner = new Scanner(System.in)) {
+            if (scanner.hasNextLine()) {
+                paragraph = scanner.nextLine();
+            } else {
+                paragraph = "Hello world and hello again to OOP";
+                System.out.println(paragraph);
+            }
         }
         printWordFrequencies(paragraph);
 
@@ -85,5 +86,7 @@ public class Lab8 {
         for (Map.Entry<String, Integer> entry : sortedEntries) {
             System.out.printf("%s: %d%n", entry.getKey(), entry.getValue());
         }
+       
     }
+   
 }

@@ -1,12 +1,18 @@
 /** Base person model with a name, age, and display behavior. */
 public class Person {
-    /** Person's name, shared with subclasses. */
-    private final String name;
-    /** Person's age in years. */
-    private final int age;
+    /** Person's name, accessible to subclasses. */
+    protected final String name;
+    /** Person's age in years, accessible to subclasses. */
+    protected final int age;
 
     /** Creates a person with the supplied name and age. */
     public Person(String name, int age) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Name cannot be blank.");
+        }
+        if (age < 0) {
+            throw new IllegalArgumentException("Age cannot be negative.");
+        }
         this.name = name;
         this.age = age;
     }
@@ -24,5 +30,10 @@ public class Person {
     /** Prints the person's name and age. */
     public void display() {
         System.out.printf("Name: %s, age: %d%n", name, age);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Person[name=%s, age=%d]", name, age);
     }
 }
