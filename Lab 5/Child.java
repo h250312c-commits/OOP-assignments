@@ -8,4 +8,10 @@ public class Child extends Parent {
     public String identify() {
         return "Child method";
     }
+
+    public static void main(String[] args) {
+        Child child = new Child();
+        System.out.println("Field: " + child.description);
+        System.out.println("Method: " + child.identify());
+    }
 }

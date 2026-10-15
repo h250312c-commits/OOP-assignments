@@ -26,4 +26,13 @@ public final class BubbleSorter {
             }
         }
     }
+
+    public static void main(String[] args) {
+        Integer[] nums = {5, 1, 4, 2, 8};
+        String[] words = {"pear", "apple", "orange", "banana"};
+        bubbleSort(nums);
+        bubbleSort(words);
+        System.out.println("Sorted integers: " + java.util.Arrays.toString(nums));
+        System.out.println("Sorted strings: " + java.util.Arrays.toString(words));
+    }
 }

@@ -13,4 +13,10 @@ public class CurrentAccount extends Account {
     public double monthlyFee() {
         return MONTHLY_FEE;
     }
+
+    public static void main(String[] args) {
+        CurrentAccount ca = new CurrentAccount(500.0);
+        ca.deposit(100.0);
+        System.out.printf("CurrentAccount balance: %.2f, fee: %.2f%n", ca.getBalance(), ca.monthlyFee());
+    }
 }

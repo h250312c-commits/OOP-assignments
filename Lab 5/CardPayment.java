@@ -21,4 +21,9 @@ public class CardPayment implements Payment {
     public void process() {
         charge();
     }
+
+    public static void main(String[] args) {
+        CardPayment cardPayment = new CardPayment("1234");
+        cardPayment.process();
+    }
 }

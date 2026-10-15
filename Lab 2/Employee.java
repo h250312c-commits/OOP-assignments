@@ -63,4 +63,17 @@ public class Employee {
         return String.format("Employee ID: %d, name: %s, department: %s, salary: %.2f",
                 employeeId, name, department, salary);
     }
+
+    /** Demonstrates Employee constructors and auto-incrementing ID. */
+    public static void main(String[] args) {
+        System.out.println("Testing Employee:");
+        Employee e1 = new Employee("Tendai");
+        Employee e2 = new Employee("Chipo", "Engineering");
+        Employee e3 = new Employee("Farai", "Finance", 50000.0);
+        Employee e4 = new Employee(e3);
+        System.out.println(e1);
+        System.out.println(e2);
+        System.out.println(e3);
+        System.out.println("Copy of e3: " + e4);
+    }
 }

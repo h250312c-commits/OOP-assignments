@@ -17,4 +17,9 @@ public class SalariedEmployee extends Employee {
     public double calculatePay() {
         return monthlySalary;
     }
+
+    public static void main(String[] args) {
+        SalariedEmployee emp = new SalariedEmployee("Ava", 4000.0);
+        System.out.printf("%s (Salaried) pay: %.2f%n", emp.getName(), emp.calculatePay());
+    }
 }

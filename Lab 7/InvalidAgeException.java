@@ -6,4 +6,9 @@ public class InvalidAgeException extends Exception {
     public InvalidAgeException(String message) {
         super(message);
     }
+
+    public static void main(String[] args) {
+        InvalidAgeException ex = new InvalidAgeException("Test exception message.");
+        System.out.println("InvalidAgeException instantiated: " + ex.getMessage());
+    }
 }

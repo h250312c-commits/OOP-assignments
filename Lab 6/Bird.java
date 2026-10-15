@@ -5,4 +5,9 @@ public class Bird implements Flyable {
     public void fly() {
         System.out.println("Bird flies by flapping its wings.");
     }
+
+    public static void main(String[] args) {
+        Bird bird = new Bird();
+        bird.fly();
+    }
 }

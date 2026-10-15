@@ -22,4 +22,9 @@ public final class Student {
     public int marks() {
         return marks;
     }
+
+    public static void main(String[] args) {
+        Student student = new Student("Bob", 92);
+        System.out.printf("Student: %s, Marks: %d%n", student.name(), student.marks());
+    }
 }

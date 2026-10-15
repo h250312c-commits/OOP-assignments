@@ -7,4 +7,9 @@ public class HelloGreeter implements FirstHello, SecondHello {
         SecondHello.super.hello();
         System.out.println("Conflict resolved in HelloGreeter.");
     }
+
+    public static void main(String[] args) {
+        HelloGreeter greeter = new HelloGreeter();
+        greeter.hello();
+    }
 }

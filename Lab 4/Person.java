@@ -36,4 +36,11 @@ public class Person {
     public String toString() {
         return String.format("Person[name=%s, age=%d]", name, age);
     }
+
+    /** Demonstrates Person display functionality. */
+    public static void main(String[] args) {
+        System.out.println("Testing Person:");
+        Person person = new Person("Alex", 40);
+        person.display();
+    }
 }

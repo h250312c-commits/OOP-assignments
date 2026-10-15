@@ -60,4 +60,18 @@ public class Student {
         }
         return marks;
     }
+
+    /** Demonstrates Student validation and grade calculation. */
+    public static void main(String[] args) {
+        System.out.println("Testing Student:");
+        Student s = new Student("Tinashe", 85);
+        System.out.println("Name: " + s.getName());
+        System.out.println("Marks: " + s.getMarks());
+        System.out.println("Grade: " + s.getGrade());
+        try {
+            s.setMarks(150);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Expected validation error: " + e.getMessage());
+        }
+    }
 }

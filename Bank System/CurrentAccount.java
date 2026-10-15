@@ -45,4 +45,15 @@ public class CurrentAccount extends Account {
         System.out.printf("Current account %s was charged a $%.2f maintenance fee.%n",
                 accountNumber, MONTHLY_MAINTENANCE_FEE);
     }
+
+    /** Demonstrates CurrentAccount functionality. */
+    public static void main(String[] args) {
+        System.out.println("Testing CurrentAccount:");
+        CurrentAccount account = new CurrentAccount("CA-909", 100.00, 300.00);
+        System.out.printf("Initial balance: $%.2f%n", account.getBalance());
+        account.withdraw(250.00);
+        System.out.printf("Balance after overdraft: $%.2f%n", account.getBalance());
+        account.endOfMonth();
+        System.out.printf("Final balance: $%.2f%n", account.getBalance());
+    }
 }

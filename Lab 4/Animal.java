@@ -20,4 +20,11 @@ public class Animal {
     public String toString() {
         return String.format("Animal[name=%s]", name);
     }
+
+    /** Demonstrates Animal initialization. */
+    public static void main(String[] args) {
+        System.out.println("Testing Animal:");
+        Animal animal = new Animal("Leo");
+        System.out.println("Animal name: " + animal.getName());
+    }
 }

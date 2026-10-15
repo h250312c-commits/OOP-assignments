@@ -7,4 +7,10 @@ public class Parent {
     public String identify() {
         return "Parent method";
     }
+
+    public static void main(String[] args) {
+        Parent parent = new Parent();
+        System.out.println("Field: " + parent.description);
+        System.out.println("Method: " + parent.identify());
+    }
 }

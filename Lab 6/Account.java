@@ -29,6 +29,16 @@ public abstract class Account {
     }
 
     /** Returns the fee charged each month by a concrete account type. */
-    /** Returns the fee charged each month by a concrete account type. */
     public abstract double monthlyFee();
+
+    public static void main(String[] args) {
+        Account acc = new Account(100.0) {
+            @Override
+            public double monthlyFee() {
+                return 5.0;
+            }
+        };
+        acc.deposit(50.0);
+        System.out.printf("Account demo balance: %.2f, monthly fee: %.2f%n", acc.getBalance(), acc.monthlyFee());
+    }
 }

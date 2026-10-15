@@ -52,4 +52,12 @@ public class Book {
     public String toString() {
         return title + " (ISBN: " + isbn + ")";
     }
+
+    public static void main(String[] args) {
+        Book b1 = new Book("978-0134685991", "Effective Java");
+        Book b2 = new Book("978-0134685991", "Another Title");
+        System.out.println("Book 1: " + b1);
+        System.out.println("Book 2: " + b2);
+        System.out.println("Equal by ISBN: " + b1.equals(b2));
+    }
 }

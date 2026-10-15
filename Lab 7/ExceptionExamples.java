@@ -39,4 +39,15 @@ public class ExceptionExamples {
             System.out.println("finally executes before the method returns");
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("--- ExceptionExamples Demo ---");
+        try (Scanner scanner = new Scanner("10 2\n")) {
+            divideTwoIntegers(scanner);
+        }
+        printArrayElement(new int[] {10, 20, 30}, 1);
+        printArrayElement(new int[] {10, 20, 30}, 5);
+        int result = returnFromTry();
+        System.out.println("Returned value: " + result);
+    }
 }

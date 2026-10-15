@@ -18,4 +18,14 @@ public abstract class Employee {
 
     /** Calculates the employee's pay for the represented pay period. */
     public abstract double calculatePay();
+
+    public static void main(String[] args) {
+        Employee employee = new Employee("Demo Employee") {
+            @Override
+            public double calculatePay() {
+                return 3500.0;
+            }
+        };
+        System.out.printf("%s pay: %.2f%n", employee.getName(), employee.calculatePay());
+    }
 }

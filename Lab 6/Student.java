@@ -45,4 +45,12 @@ public class Student implements Comparable<Student> {
     public String toString() {
         return name + " (" + marks + ")";
     }
+
+    public static void main(String[] args) {
+        Student s1 = new Student("Alice", 92);
+        Student s2 = new Student("Bob", 85);
+        System.out.println("Student 1: " + s1);
+        System.out.println("Student 2: " + s2);
+        System.out.println("Comparison result: " + s1.compareTo(s2));
+    }
 }

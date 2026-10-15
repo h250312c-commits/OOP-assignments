@@ -27,4 +27,12 @@ public final class ImmutablePerson {
     public int getAge() {
         return age;
     }
+
+    /** Demonstrates ImmutablePerson immutability and getters. */
+    public static void main(String[] args) {
+        System.out.println("Testing ImmutablePerson:");
+        ImmutablePerson p = new ImmutablePerson("Ruvimbo", 24);
+        System.out.println("Name: " + p.getName());
+        System.out.println("Age: " + p.getAge());
+    }
 }

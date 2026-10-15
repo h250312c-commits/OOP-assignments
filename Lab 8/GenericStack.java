@@ -34,4 +34,13 @@ public class GenericStack<T> {
             throw new NoSuchElementException("Stack is empty.");
         }
     }
+
+    public static void main(String[] args) {
+        GenericStack<String> stack = new GenericStack<>();
+        stack.push("first");
+        stack.push("second");
+        System.out.println("Top: " + stack.peek());
+        System.out.println("Popped: " + stack.pop());
+        System.out.println("Still has items: " + !stack.isEmpty());
+    }
 }

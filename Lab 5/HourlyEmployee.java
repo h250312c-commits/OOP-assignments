@@ -21,4 +21,9 @@ public class HourlyEmployee extends Employee {
     public double calculatePay() {
         return hourlyRate * hoursWorked;
     }
+
+    public static void main(String[] args) {
+        HourlyEmployee emp = new HourlyEmployee("Noah", 25.0, 80.0);
+        System.out.printf("%s (Hourly) pay: %.2f%n", emp.getName(), emp.calculatePay());
+    }
 }

@@ -21,4 +21,11 @@ public class Vehicle {
     public String toString() {
         return String.format("Vehicle[model=%s]", model);
     }
+
+    /** Demonstrates Vehicle creation. */
+    public static void main(String[] args) {
+        System.out.println("Testing Vehicle:");
+        Vehicle vehicle = new Vehicle("Sedan-V1");
+        System.out.println("Model: " + vehicle.getModel());
+    }
 }

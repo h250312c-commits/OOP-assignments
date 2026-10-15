@@ -9,4 +9,11 @@ public class Address {
     public String getCity() {
         return city;
     }
+
+    /** Demonstrates Address functionality. */
+    public static void main(String[] args) {
+        System.out.println("Testing Address:");
+        Address address = new Address("Harare");
+        System.out.println("City: " + address.getCity());
+    }
 }

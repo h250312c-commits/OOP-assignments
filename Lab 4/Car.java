@@ -22,4 +22,11 @@ public class Car extends Vehicle {
     public String toString() {
         return String.format("Car[model=%s, doors=%d]", model, doors);
     }
+
+    /** Demonstrates Car constructor chaining from Vehicle. */
+    public static void main(String[] args) {
+        System.out.println("Testing Car:");
+        Car car = new Car("Sedan", 4);
+        System.out.println("Car model: " + car.getModel() + ", doors: " + car.getDoors());
+    }
 }

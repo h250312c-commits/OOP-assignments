@@ -17,4 +17,9 @@ public class Intern extends Employee {
     public double calculatePay() {
         return stipend;
     }
+
+    public static void main(String[] args) {
+        Intern intern = new Intern("Mia", 900.0);
+        System.out.printf("%s (Intern) stipend: %.2f%n", intern.getName(), intern.calculatePay());
+    }
 }

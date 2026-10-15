@@ -19,4 +19,12 @@ public class Car {
     public boolean isAntique() {
         return java.time.Year.now().getValue() - year > 25;
     }
+
+    /** Demonstrates Car functionality. */
+    public static void main(String[] args) {
+        System.out.println("Testing Car:");
+        Car car = new Car("Toyota Corolla", 1998, 145000);
+        car.display();
+        System.out.println("Is Antique: " + car.isAntique());
+    }
 }

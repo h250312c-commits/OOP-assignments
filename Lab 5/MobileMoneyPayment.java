@@ -21,4 +21,9 @@ public class MobileMoneyPayment implements Payment {
     public void process() {
         transfer();
     }
+
+    public static void main(String[] args) {
+        MobileMoneyPayment payment = new MobileMoneyPayment("+263771234567");
+        payment.process();
+    }
 }

@@ -9,4 +9,11 @@ public class Dog extends Animal {
     public String toString() {
         return String.format("Dog[name=%s]", name);
     }
+
+    /** Demonstrates Dog subclassing Animal with super(name). */
+    public static void main(String[] args) {
+        System.out.println("Testing Dog:");
+        Dog dog = new Dog("Buddy");
+        System.out.println("Dog name: " + dog.getName());
+    }
 }

@@ -52,4 +52,17 @@ public class Stack<T> {
             throw new IllegalStateException("Stack is empty.");
         }
     }
+
+    /** Demonstrates Stack LIFO operations via composition. */
+    public static void main(String[] args) {
+        System.out.println("Testing Stack:");
+        Stack<Integer> stack = new Stack<>();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        System.out.println("Stack: " + stack);
+        System.out.println("Peek: " + stack.peek());
+        System.out.println("Popped: " + stack.pop());
+        System.out.println("Size after pop: " + stack.size());
+    }
 }

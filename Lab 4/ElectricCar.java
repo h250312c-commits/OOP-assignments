@@ -23,4 +23,11 @@ public class ElectricCar extends Car {
         return String.format("ElectricCar[model=%s, doors=%d, battery=%d kWh]",
                 model, doors, batteryCapacityKwh);
     }
+
+    /** Demonstrates ElectricCar 3-level constructor chaining. */
+    public static void main(String[] args) {
+        System.out.println("Testing ElectricCar:");
+        ElectricCar ev = new ElectricCar("Tesla Model 3", 4, 75);
+        System.out.println(ev);
+    }
 }

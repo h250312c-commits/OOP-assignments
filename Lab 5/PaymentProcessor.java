@@ -23,4 +23,16 @@ public class PaymentProcessor {
         }
         payment.process();
     }
+
+    public static void main(String[] args) {
+        PaymentProcessor processor = new PaymentProcessor();
+        Payment card = new CardPayment("1234");
+        Payment mobile = new MobileMoneyPayment("+263771234567");
+        System.out.println("Processing via pay():");
+        processor.pay(card);
+        processor.pay(mobile);
+        System.out.println("Processing via payPolymorphically():");
+        processor.payPolymorphically(card);
+        processor.payPolymorphically(mobile);
+    }
 }

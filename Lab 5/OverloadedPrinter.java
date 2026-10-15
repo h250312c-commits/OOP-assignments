@@ -21,4 +21,12 @@ public class OverloadedPrinter {
     public void print(int[] values) {
         System.out.println("int[]: " + Arrays.toString(values));
     }
+
+    public static void main(String[] args) {
+        OverloadedPrinter printer = new OverloadedPrinter();
+        printer.print(42);
+        printer.print(3.14);
+        printer.print("Hello");
+        printer.print(new int[] {1, 2, 3});
+    }
 }

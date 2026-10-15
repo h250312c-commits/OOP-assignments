@@ -64,4 +64,19 @@ public class BankAccount {
     public List<String> getTransactionHistory() {
         return Collections.unmodifiableList(new ArrayList<>(transactionHistory));
     }
+
+    /** Demonstrates BankAccount functionality and transaction history. */
+    public static void main(String[] args) {
+        System.out.println("Testing BankAccount:");
+        BankAccount account = new BankAccount("BA-202", 500.00);
+        System.out.println("Account Number: " + account.getAccountNumber());
+        account.deposit(200.00);
+        try {
+            account.withdraw(100.00);
+            account.withdraw(999.00); // throws InsufficientFundsException
+        } catch (InsufficientFundsException e) {
+            System.out.println("Expected rejection: " + e.getMessage());
+        }
+        System.out.println("Transaction history: " + account.getTransactionHistory());
+    }
 }

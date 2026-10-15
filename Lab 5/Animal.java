@@ -14,4 +14,11 @@ public class Animal {
     public static void info() {
         System.out.println("Animal info");
     }
+
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        System.out.println("Type: " + animal.type);
+        animal.speak();
+        Animal.info();
+    }
 }

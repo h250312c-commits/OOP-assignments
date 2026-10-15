@@ -5,4 +5,10 @@ public class Cow extends Animal {
     public String sound() {
         return "Moo";
     }
+
+    public static void main(String[] args) {
+        Cow cow = new Cow();
+        System.out.println("Cow sound: " + cow.sound());
+        cow.speak();
+    }
 }

@@ -20,4 +20,16 @@ public class Temperature {
     public double getFahrenheit() {
         return getCelsius() * 9 / 5 + 32;
     }
+
+    /** Demonstrates Temperature kelvin storage and conversions. */
+    public static void main(String[] args) {
+        System.out.println("Testing Temperature (Kelvin):");
+        Temperature temp = new Temperature(300.0);
+        System.out.printf("300.0 K = %.2f C, %.2f F%n", temp.getCelsius(), temp.getFahrenheit());
+        try {
+            new Temperature(-5.0);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Expected negative Kelvin rejection: " + e.getMessage());
+        }
+    }
 }

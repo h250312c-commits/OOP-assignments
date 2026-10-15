@@ -59,4 +59,10 @@ public enum Coin {
         }
         return Collections.unmodifiableList(result);
     }
+
+    public static void main(String[] args) {
+        int amount = 63;
+        List<Coin> coins = fewestCoins(amount);
+        System.out.println("Fewest coins for " + amount + " cents: " + coins + " (" + coins.size() + " coins)");
+    }
 }

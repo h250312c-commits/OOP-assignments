@@ -67,4 +67,15 @@ public class CustomLinkedList<T> implements Iterable<T> {
             return value;
         }
     }
+
+    public static void main(String[] args) {
+        CustomLinkedList<String> list = new CustomLinkedList<>();
+        list.add("Alpha");
+        list.add("Beta");
+        list.add("Gamma");
+        System.out.println("List elements (size = " + list.size() + "):");
+        for (String item : list) {
+            System.out.println("- " + item);
+        }
+    }
 }

@@ -9,4 +9,10 @@ public record Student(String name, int age) {
             throw new IllegalArgumentException("Age cannot be negative.");
         }
     }
+
+    public static void main(String[] args) {
+        Student student = new Student("Ava", 20);
+        System.out.println("Student record: " + student);
+        System.out.println("Name: " + student.name() + ", Age: " + student.age());
+    }
 }

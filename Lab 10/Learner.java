@@ -33,4 +33,10 @@ public final class Learner {
         }
         return "C";
     }
+
+    public static void main(String[] args) {
+        Learner learner = new Learner("Alice", 85);
+        System.out.printf("Learner: %s, Marks: %d, Grade Band: %s%n",
+                learner.name(), learner.marks(), learner.gradeBand());
+    }
 }

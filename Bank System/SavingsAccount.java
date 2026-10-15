@@ -44,4 +44,15 @@ public class SavingsAccount extends Account {
         balance += interest;
         System.out.printf("Savings account %s earned $%.2f interest.%n", accountNumber, interest);
     }
+
+    /** Demonstrates SavingsAccount functionality. */
+    public static void main(String[] args) {
+        System.out.println("Testing SavingsAccount:");
+        SavingsAccount account = new SavingsAccount("SA-101", 1000.00, 200.00);
+        System.out.printf("Initial balance: $%.2f%n", account.getBalance());
+        account.withdraw(850.00); // rejected due to minimum balance
+        account.withdraw(300.00); // accepted
+        account.endOfMonth();     // interest credited
+        System.out.printf("Final balance: $%.2f%n", account.getBalance());
+    }
 }

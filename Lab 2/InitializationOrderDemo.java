@@ -18,4 +18,12 @@ public class InitializationOrderDemo {
     public InitializationOrderDemo() {
         System.out.println("Constructor");
     }
+
+    /** Demonstrates static vs instance initialization order. */
+    public static void main(String[] args) {
+        System.out.println("Creating first instance:");
+        new InitializationOrderDemo();
+        System.out.println("\nCreating second instance:");
+        new InitializationOrderDemo();
+    }
 }

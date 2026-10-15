@@ -6,4 +6,16 @@ public class AgeValidator {
             throw new InvalidAgeException("Age must be between 0 and 120.");
         }
     }
+
+    public static void main(String[] args) {
+        int[] testAges = {25, -1, 150};
+        for (int age : testAges) {
+            try {
+                validateAge(age);
+                System.out.println("Age " + age + " is valid.");
+            } catch (InvalidAgeException e) {
+                System.out.println("Age " + age + " is invalid: " + e.getMessage());
+            }
+        }
+    }
 }

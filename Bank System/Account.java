@@ -44,4 +44,14 @@ public abstract class Account {
 
     /** Applies this account's monthly processing. */
     public abstract void endOfMonth();
+
+    /** Demonstrates Account functionality. */
+    public static void main(String[] args) {
+        System.out.println("Testing Account via concrete SavingsAccount instance:");
+        Account account = new SavingsAccount("ACC-001", 500.00, 100.00);
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.printf("Starting Balance: $%.2f%n", account.getBalance());
+        account.deposit(250.00);
+        System.out.printf("New Balance: $%.2f%n", account.getBalance());
+    }
 }

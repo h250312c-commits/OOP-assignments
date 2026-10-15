@@ -22,4 +22,9 @@ public class Circle extends Shape {
     public double perimeter() {
         return 2 * Math.PI * radius;
     }
+
+    public static void main(String[] args) {
+        Circle circle = new Circle(2.5);
+        System.out.printf("Circle: area = %.2f, perimeter = %.2f%n", circle.area(), circle.perimeter());
+    }
 }

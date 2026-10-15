@@ -28,4 +28,11 @@ public class Teacher extends Person {
     public String toString() {
         return String.format("Teacher[name=%s, age=%d, subject=%s]", getName(), getAge(), subject);
     }
+
+    /** Demonstrates Teacher display with super.display(). */
+    public static void main(String[] args) {
+        System.out.println("Testing Teacher:");
+        Teacher teacher = new Teacher("Morgan", 35, "Object-Oriented Programming");
+        teacher.display();
+    }
 }

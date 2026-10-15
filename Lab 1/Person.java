@@ -15,4 +15,12 @@ public class Person {
     public Address getAddress() {
         return address;
     }
+
+    /** Demonstrates Person functionality with composition. */
+    public static void main(String[] args) {
+        System.out.println("Testing Person:");
+        Person p = new Person("Angella", new Address("Harare"));
+        System.out.println("Name: " + p.getName());
+        System.out.println("City: " + (p.getAddress() != null ? p.getAddress().getCity() : "None"));
+    }
 }

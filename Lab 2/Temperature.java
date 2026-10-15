@@ -27,4 +27,13 @@ public final class Temperature {
     public double toFahrenheit() {
         return celsius * 9.0 / 5.0 + 32.0;
     }
+
+    /** Demonstrates static factory methods for Temperature. */
+    public static void main(String[] args) {
+        System.out.println("Testing Temperature (static factories):");
+        Temperature c = Temperature.fromCelsius(25.0);
+        System.out.printf("25.0 C = %.1f F%n", c.toFahrenheit());
+        Temperature f = Temperature.fromFahrenheit(77.0);
+        System.out.printf("77.0 F = %.1f C%n", f.toCelsius());
+    }
 }
