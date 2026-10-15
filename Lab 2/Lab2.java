@@ -27,5 +27,7 @@ public class Lab2 {
         Temperature freezingPoint = Temperature.fromFahrenheit(32);
         System.out.printf("20 C = %.1f F; 32 F = %.1f C%n",
                 roomTemperature.toFahrenheit(), freezingPoint.toCelsius());
+        System.out.println("Named factories make the input unit clear at the call site; "
+                + "constructors cannot be overloaded by parameter name when both take a double.");
     }
 }

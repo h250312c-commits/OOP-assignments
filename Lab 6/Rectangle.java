@@ -1,7 +1,11 @@
+/** Rectangular shape whose dimensions are shared with the square subtype. */
 public class Rectangle extends Shape {
+    /** Horizontal extent, also used as the square's side length. */
     protected final double width;
+    /** Vertical extent, also used as the square's side length. */
     protected final double height;
 
+    /** Creates a rectangle with finite, non-negative dimensions. */
     public Rectangle(double width, double height) {
         if (!Double.isFinite(width) || width < 0
                 || !Double.isFinite(height) || height < 0) {
@@ -12,11 +16,13 @@ public class Rectangle extends Shape {
     }
 
     @Override
+    /** Returns width multiplied by height. */
     public double area() {
         return width * height;
     }
 
     @Override
+    /** Returns the sum of all four side lengths. */
     public double perimeter() {
         return 2 * (width + height);
     }

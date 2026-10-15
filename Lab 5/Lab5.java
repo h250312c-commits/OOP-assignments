@@ -1,5 +1,9 @@
+/** Runs overloading, polymorphism, inheritance, and payment examples. */
 public class Lab5 {
+    /** Runs each Lab 5 demonstration. */
     public static void main(String[] args) {
+        Calculator.run();
+
         System.out.println("1. Overloaded print methods");
         OverloadedPrinter printer = new OverloadedPrinter();
         printer.print(42);
@@ -31,6 +35,8 @@ public class Lab5 {
         Parent reference = new Child();
         System.out.println("Field: " + reference.description);
         System.out.println("Method: " + reference.identify());
+        System.out.println("Fields are selected from the reference type; overridden methods "
+                + "are selected from the object's runtime type.");
 
         System.out.println("\n5. Payment processing");
         PaymentProcessor processor = new PaymentProcessor();
@@ -46,5 +52,10 @@ public class Lab5 {
         for (Payment payment : payments) {
             processor.payPolymorphically(payment);
         }
+        System.out.println("instanceof centralizes type checks in the processor; "
+                + "polymorphism lets each payment handle its own process().");
+
+        Shapes.run();
+        CastingDemo.run();
     }
 }

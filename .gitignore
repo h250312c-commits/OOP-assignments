@@ -1,0 +1,14 @@
+# Compiled Java class files
+*.class
+bin/
+bin_test/
+
+# Generated runtime output files
+five-lines.txt
+learners-*.txt
+
+# IDE and OS metadata
+.metadata/
+*.log
+.DS_Store
+Thumbs.db

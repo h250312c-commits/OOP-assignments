@@ -1,6 +1,9 @@
+/** Employee whose pay for the period is a fixed stipend. */
 public class Intern extends Employee {
+    /** Fixed pay amount for the represented period. */
     private final double stipend;
 
+    /** Creates an intern with a finite, non-negative stipend. */
     public Intern(String name, double stipend) {
         super(name);
         if (!Double.isFinite(stipend) || stipend < 0) {
@@ -9,6 +12,7 @@ public class Intern extends Employee {
         this.stipend = stipend;
     }
 
+    /** Returns the intern's stipend. */
     @Override
     public double calculatePay() {
         return stipend;

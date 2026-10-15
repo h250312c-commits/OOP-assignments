@@ -1,7 +1,11 @@
-public class Temperature {
+public final class Temperature {
     private final double celsius;
 
     private Temperature(double celsius) {
+        if (!Double.isFinite(celsius) || celsius < -273.15) {
+            throw new IllegalArgumentException(
+                    "Temperature must be finite and at or above absolute zero.");
+        }
         this.celsius = celsius;
     }
 
@@ -10,7 +14,10 @@ public class Temperature {
     }
 
     public static Temperature fromFahrenheit(double fahrenheit) {
-        return new Temperature((fahrenheit - 32) * 5 / 9);
+        if (!Double.isFinite(fahrenheit)) {
+            throw new IllegalArgumentException("Temperature must be finite.");
+        }
+        return new Temperature((fahrenheit - 32.0) * 5.0 / 9.0);
     }
 
     public double toCelsius() {
@@ -18,6 +25,6 @@ public class Temperature {
     }
 
     public double toFahrenheit() {
-        return celsius * 9 / 5 + 32;
+        return celsius * 9.0 / 5.0 + 32.0;
     }
 }

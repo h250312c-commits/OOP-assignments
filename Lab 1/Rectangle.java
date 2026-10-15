@@ -1,5 +1,4 @@
-package Lab1;
-
+/** Rectangle with methods for its area and perimeter. */
 public class Rectangle {
     public double width;
     public double height;

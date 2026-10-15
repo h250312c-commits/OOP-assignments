@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/** Runs the Lab 6 examples for abstraction, interfaces, and comparators. */
 public class Lab6 {
+    /** Runs each Lab 6 demonstration. */
     public static void main(String[] args) {
         System.out.println("1. Abstract shapes");
         List<Shape> shapes = List.of(new Circle(2), new Rectangle(4, 3), new Square(3));

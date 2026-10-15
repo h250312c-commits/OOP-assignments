@@ -1,8 +1,12 @@
+/** Account type that permits withdrawals within an overdraft limit. */
 public class CurrentAccount extends Account {
+    /** Fixed monthly fee charged to every current account. */
     private static final double MONTHLY_MAINTENANCE_FEE = 5.00;
 
+    /** Maximum amount this account may be overdrawn. */
     private final double overdraftLimit;
 
+    /** Creates an account with the specified overdraft limit. */
     public CurrentAccount(String accountNumber, double initialBalance, double overdraftLimit) {
         super(accountNumber, initialBalance);
         if (overdraftLimit < 0) {
@@ -12,13 +16,16 @@ public class CurrentAccount extends Account {
         this.overdraftLimit = overdraftLimit;
     }
 
+    /** Withdraws funds if the amount is valid and the limit is not exceeded. */
     @Override
     public boolean withdraw(double amount) {
+        // Reject invalid amounts before checking available funds.
         if (amount <= 0) {
             System.out.printf("Withdrawal rejected for current account %s: amount must be positive.%n",
                     accountNumber);
             return false;
         }
+        // The balance may go below zero, but not beyond the overdraft limit.
         if (balance - amount < -overdraftLimit) {
             System.out.printf(
                     "Withdrawal rejected for current account %s: overdraft limit is $%.2f.%n",
@@ -31,6 +38,7 @@ public class CurrentAccount extends Account {
         return true;
     }
 
+    /** Deducts the monthly maintenance fee from the balance. */
     @Override
     public void endOfMonth() {
         balance -= MONTHLY_MAINTENANCE_FEE;

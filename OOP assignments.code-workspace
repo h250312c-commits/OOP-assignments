@@ -1,0 +1,51 @@
+{
+    "folders": [
+        {
+            "name": "Bank System",
+            "path": "Bank System"
+        },
+        {
+            "name": "Lab 1",
+            "path": "Lab 1"
+        },
+        {
+            "name": "Lab 2",
+            "path": "Lab 2"
+        },
+        {
+            "name": "Lab 3",
+            "path": "Lab 3"
+        },
+        {
+            "name": "Lab 4",
+            "path": "Lab 4"
+        },
+        {
+            "name": "Lab 5",
+            "path": "Lab 5"
+        },
+        {
+            "name": "Lab 6",
+            "path": "Lab 6"
+        },
+        {
+            "name": "Lab 7",
+            "path": "Lab 7"
+        },
+        {
+            "name": "Lab 8",
+            "path": "Lab 8"
+        },
+        {
+            "name": "Lab 9",
+            "path": "Lab 9"
+        },
+        {
+            "name": "Lab 10",
+            "path": "Lab 10"
+        }
+    ],
+    "settings": {
+        "java.project.importOnFirstTimeStartup": "automatic"
+    }
+}

@@ -47,3 +47,25 @@ The refactored `payPolymorphically(Payment)` delegates to `payment.process()`.
 Each payment class implements that operation itself, so the processor remains
 unchanged when adding another `Payment` implementation. This reduces type
 checking in the processor and keeps payment-specific behavior with its class.
+
+## 6. Compile-time polymorphism with Calculator
+
+`Calculator` demonstrates method overloading with varying parameter counts and
+types (`add(int, int)`, `add(int, int, int)`, `add(double, double)`,
+`add(String, String)`). The compiler chooses the appropriate method at
+compile-time based on argument types.
+
+## 7. Runtime polymorphism with Shapes hierarchy
+
+An abstract `Shape` class defines `area()` and `name()`. Subclasses `Circle`,
+`Rectangle`, `Triangle`, and `Square` implement specific geometric formulas.
+An array `Shape[]` is processed uniformly using dynamic method dispatch,
+allowing new shape types without modifying the caller.
+
+## 8. Downcasting and field hiding with CastingDemo
+
+`CastingDemo` highlights the distinction between method overriding (dynamic
+dispatch based on the runtime object) and field access/static methods (static
+resolution based on the declared reference type). It also illustrates safe
+downcasting using `instanceof` pattern matching.
+

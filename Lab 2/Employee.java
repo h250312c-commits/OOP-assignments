@@ -15,18 +15,47 @@ public class Employee {
     }
 
     public Employee(String name, String department, double salary) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Name cannot be blank.");
+        }
+        if (department == null || department.isBlank()) {
+            throw new IllegalArgumentException("Department cannot be blank.");
+        }
+        if (!Double.isFinite(salary) || salary < 0) {
+            throw new IllegalArgumentException("Salary must be finite and non-negative.");
+        }
+
         this.employeeId = nextEmployeeId++;
         this.name = name;
         this.department = department;
         this.salary = salary;
     }
 
-    public Employee(Employee other) {
-        this(other.name, other.department, other.salary);
+    public Employee(Employee employee) {
+        this(requireEmployee(employee).name, employee.department, employee.salary);
+    }
+
+    private static Employee requireEmployee(Employee employee) {
+        if (employee == null) {
+            throw new IllegalArgumentException("Employee to copy cannot be null.");
+        }
+        return employee;
     }
 
     public int getEmployeeId() {
         return employeeId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public double getSalary() {
+        return salary;
     }
 
     @Override

@@ -1,4 +1,6 @@
+/** Demonstrates explicit type dispatch and interface-based payment dispatch. */
 public class PaymentProcessor {
+    /** Routes a payment by its concrete supported type. */
     public void pay(Payment payment) {
         if (payment == null) {
             throw new IllegalArgumentException("Payment cannot be null.");
@@ -14,6 +16,7 @@ public class PaymentProcessor {
         }
     }
 
+    /** Processes any supported payment through its interface contract. */
     public void payPolymorphically(Payment payment) {
         if (payment == null) {
             throw new IllegalArgumentException("Payment cannot be null.");

@@ -1,7 +1,9 @@
 import java.util.HashSet;
 import java.util.Set;
 
+/** Runs enum, record, equality, iteration, and coin-change examples. */
 public class Lab9 {
+    /** Runs each Lab 9 demonstration. */
     public static void main(String[] args) {
         System.out.println("1. Level enum");
         for (Level level : Level.values()) {
@@ -38,6 +40,7 @@ public class Lab9 {
                 + " (" + Coin.fewestCoins(amount).size() + " coins)");
     }
 
+    /** Maps each urgency level to a short matching recommendation. */
     private static String adviceFor(Level level) {
         return switch (level) {
             case LOW -> "Proceed at a relaxed pace.";

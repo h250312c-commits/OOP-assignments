@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
+/** Runs the Lab 7 examples for checked and runtime exceptions. */
 public class Lab7 {
+    /** Runs each Lab 7 demonstration. */
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             ExceptionExamples.divideTwoIntegers(scanner);

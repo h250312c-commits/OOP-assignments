@@ -10,10 +10,27 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/** Runs file I/O, predicates, streams, and CSV-reporting examples. */
 public class Lab10 {
-    private static final Path LINES_FILE = Path.of("five-lines.txt");
-    private static final Path LEARNERS_FILE = Path.of("learners.csv");
+    /** File used by the five-line input and statistics examples. */
+    private static final Path LINES_FILE = resolveDataFile("five-lines.txt");
+    /** CSV source file used to produce grade-band reports. */
+    private static final Path LEARNERS_FILE = resolveDataFile("learners.csv");
 
+    /** Resolves a data file either from current working directory or inside Lab 10 folder. */
+    private static Path resolveDataFile(String filename) {
+        Path direct = Path.of(filename);
+        if (Files.exists(direct)) {
+            return direct;
+        }
+        Path insideLab = Path.of("Lab 10", filename);
+        if (Files.exists(insideLab)) {
+            return insideLab;
+        }
+        return direct;
+    }
+
+    /** Runs the Lab 10 exercises; file operations report I/O failures to the caller. */
     public static void main(String[] args) throws IOException {
         try (Scanner scanner = new Scanner(System.in)) {
             saveAndReadFiveLines(scanner);
@@ -24,15 +41,19 @@ public class Lab10 {
         writeLearnerReports(LEARNERS_FILE);
     }
 
+    /** Reads five lines (or uses sample lines if non-interactive), writes UTF-8, and prints contents. */
     private static void saveAndReadFiveLines(Scanner scanner) throws IOException {
         List<String> lines = new ArrayList<>();
         System.out.println("Enter five lines:");
         for (int i = 1; i <= 5; i++) {
             System.out.print(i + "> ");
-            if (!scanner.hasNextLine()) {
-                throw new IllegalArgumentException("Expected five lines of input.");
+            if (scanner.hasNextLine()) {
+                lines.add(scanner.nextLine());
+            } else {
+                String fallback = "Line " + i + " sample text";
+                System.out.println(fallback);
+                lines.add(fallback);
             }
-            lines.add(scanner.nextLine());
         }
 
         Files.write(LINES_FILE, lines, StandardCharsets.UTF_8);
@@ -42,6 +63,7 @@ public class Lab10 {
         }
     }
 
+    /** Prints line, whitespace-delimited word, and character counts for a UTF-8 file. */
     private static void printFileStatistics(Path file) throws IOException {
         String text = Files.readString(file, StandardCharsets.UTF_8);
         long lineCount = Files.readAllLines(file, StandardCharsets.UTF_8).size();
@@ -55,6 +77,7 @@ public class Lab10 {
         System.out.println("Characters (including line separators): " + text.length());
     }
 
+    /** Removes even numbers by passing a predicate to {@code removeIf}. */
     private static void demonstratePredicateAndRemoveIf() {
         List<Integer> numbers = new ArrayList<>(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         Predicate<Integer> isEven = number -> number % 2 == 0;
@@ -64,6 +87,7 @@ public class Lab10 {
         System.out.println(numbers);
     }
 
+    /** Prints sorted names of students whose marks exceed the class average. */
     private static void printAboveAverageStudents() {
         List<Student> students = List.of(
                 new Student("Zara", 88),
@@ -87,6 +111,7 @@ public class Lab10 {
         System.out.println("Names: " + aboveAverageNames);
     }
 
+    /** Groups CSV learners by grade band and writes each group alphabetically to a report. */
     private static void writeLearnerReports(Path file) throws IOException {
         List<Learner> learners = readLearners(file);
         Map<String, List<Learner>> learnersByBand = learners.stream()
@@ -96,9 +121,13 @@ public class Lab10 {
                                 .sorted(Comparator.comparing(Learner::name))
                                 .toList())));
 
+        // Determine destination folder (same directory as file if possible)
+        Path parent = file.getParent();
+
         for (String band : List.of("A", "B", "C")) {
             List<Learner> group = learnersByBand.getOrDefault(band, List.of());
-            Path report = Path.of("learners-" + band + ".txt");
+            String reportName = "learners-" + band + ".txt";
+            Path report = parent != null ? parent.resolve(reportName) : Path.of(reportName);
             List<String> lines = new ArrayList<>();
             lines.add("Grade " + band + " learners");
             for (Learner learner : group) {
@@ -109,6 +138,7 @@ public class Lab10 {
         }
     }
 
+    /** Reads and validates the name,marks CSV format, including its required header. */
     private static List<Learner> readLearners(Path file) throws IOException {
         List<String> lines = Files.readAllLines(file, StandardCharsets.UTF_8);
         if (lines.isEmpty() || !lines.get(0).trim().equalsIgnoreCase("name,marks")) {

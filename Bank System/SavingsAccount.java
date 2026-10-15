@@ -1,8 +1,12 @@
+/** Savings account that protects a minimum balance and earns monthly interest. */
 public class SavingsAccount extends Account {
+    /** Monthly interest rate applied to the current balance. */
     private static final double INTEREST_RATE = 0.03;
 
+    /** Lowest balance permitted after a withdrawal. */
     private final double minimumBalance;
 
+    /** Creates a savings account with a valid minimum balance. */
     public SavingsAccount(String accountNumber, double initialBalance, double minimumBalance) {
         super(accountNumber, initialBalance);
         if (minimumBalance < 0 || initialBalance < minimumBalance) {
@@ -13,6 +17,7 @@ public class SavingsAccount extends Account {
         this.minimumBalance = minimumBalance;
     }
 
+    /** Withdraws only when the amount is positive and the minimum remains intact. */
     @Override
     public boolean withdraw(double amount) {
         if (amount <= 0) {
@@ -32,6 +37,7 @@ public class SavingsAccount extends Account {
         return true;
     }
 
+    /** Adds interest calculated from the balance before interest is credited. */
     @Override
     public void endOfMonth() {
         double interest = balance * INTEREST_RATE;

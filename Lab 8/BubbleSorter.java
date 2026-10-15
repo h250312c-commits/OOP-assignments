@@ -1,7 +1,10 @@
+/** Utility for sorting arrays in place with the bubble-sort algorithm. */
 public final class BubbleSorter {
+    /** Prevents instantiation of this static utility class. */
     private BubbleSorter() {
     }
 
+    /** Sorts comparable values ascending and stops early when a pass makes no swaps. */
     public static <T extends Comparable<T>> void bubbleSort(T[] arr) {
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null.");
@@ -18,6 +21,7 @@ public final class BubbleSorter {
                 }
             }
             if (!swapped) {
+                // A pass with no exchanges means the remaining prefix is already ordered.
                 break;
             }
         }

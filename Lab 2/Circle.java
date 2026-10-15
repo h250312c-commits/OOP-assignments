@@ -3,13 +3,17 @@ public class Circle {
 
     private final double radius;
 
-    public Circle(double radius) {
-        this.radius = radius;
-        circleCount++;
-    }
-
     public Circle() {
         this(1.0);
+    }
+
+    public Circle(double radius) {
+        if (!Double.isFinite(radius) || radius <= 0) {
+            throw new IllegalArgumentException("Radius must be finite and positive.");
+        }
+
+        this.radius = radius;
+        circleCount++;
     }
 
     public double getRadius() {

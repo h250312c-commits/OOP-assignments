@@ -1,6 +1,8 @@
 import java.util.List;
 
+/** Runs the Lab 3 examples for validation, banking, immutability, and units. */
 public class Lab3 {
+    /** Runs each Lab 3 demonstration. */
     public static void main(String[] args) {
         System.out.println("1-2. Student");
         Student student = new Student("Jordan", 85);

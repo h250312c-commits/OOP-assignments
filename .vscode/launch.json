@@ -1,0 +1,82 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Bank System (BankDemo)",
+            "request": "launch",
+            "mainClass": "BankDemo",
+            "projectName": "Bank System"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab 1 (Lab1)",
+            "request": "launch",
+            "mainClass": "Lab1",
+            "projectName": "Lab 1"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab 2 (Lab2)",
+            "request": "launch",
+            "mainClass": "Lab2",
+            "projectName": "Lab 2"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab 3 (Lab3)",
+            "request": "launch",
+            "mainClass": "Lab3",
+            "projectName": "Lab 3"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab 4 (Lab4)",
+            "request": "launch",
+            "mainClass": "Lab4",
+            "projectName": "Lab 4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab 5 (Lab5)",
+            "request": "launch",
+            "mainClass": "Lab5",
+            "projectName": "Lab 5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab 6 (Lab6)",
+            "request": "launch",
+            "mainClass": "Lab6",
+            "projectName": "Lab 6"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab 7 (Lab7)",
+            "request": "launch",
+            "mainClass": "Lab7",
+            "projectName": "Lab 7"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab 8 (Lab8)",
+            "request": "launch",
+            "mainClass": "Lab8",
+            "projectName": "Lab 8"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab 9 (Lab9)",
+            "request": "launch",
+            "mainClass": "Lab9",
+            "projectName": "Lab 9"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab 10 (Lab10)",
+            "request": "launch",
+            "mainClass": "Lab10",
+            "projectName": "Lab 10"
+        }
+    ]
+}

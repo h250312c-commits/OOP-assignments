@@ -1,6 +1,8 @@
 /** Shared account data and operations for specific bank account types. */
 public abstract class Account {
+    /** Identifier used to distinguish this account in transaction messages. */
     protected String accountNumber;
+    /** Current balance, which subclasses update when processing transactions. */
     protected double balance;
 
     /** Creates an account with a number and non-negative starting balance. */
@@ -25,6 +27,11 @@ public abstract class Account {
 
         balance += amount;
         System.out.printf("Deposited $%.2f into account %s.%n", amount, accountNumber);
+    }
+
+    /** Returns the account number. */
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
     /** Returns the current account balance. */

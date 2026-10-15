@@ -8,7 +8,9 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
 
+/** Runs collection, generic stack, frequency, and sorting examples. */
 public class Lab8 {
+    /** Runs each Lab 8 demonstration. */
     public static void main(String[] args) {
         System.out.println("1. ArrayList calculations");
         ArrayList<Integer> numbers = new ArrayList<>(
@@ -41,13 +43,15 @@ public class Lab8 {
 
         System.out.println("\n4. Word frequencies");
         System.out.print("Enter a paragraph (one line): ");
-        try (Scanner scanner = new Scanner(System.in)) {
-            if (!scanner.hasNextLine()) {
-                System.out.println("No paragraph was provided.");
-                return;
-            }
-            printWordFrequencies(scanner.nextLine());
+        Scanner scanner = new Scanner(System.in);
+        String paragraph;
+        if (scanner.hasNextLine()) {
+            paragraph = scanner.nextLine();
+        } else {
+            paragraph = "Hello world and hello again to OOP";
+            System.out.println(paragraph);
         }
+        printWordFrequencies(paragraph);
 
         System.out.println("\n5. Generic bubble sort");
         Integer[] integerValues = {5, 1, 4, 2, 8};
@@ -58,8 +62,10 @@ public class Lab8 {
         System.out.println("Sorted strings: " + Arrays.toString(stringValues));
     }
 
+    /** Counts case-insensitive words and prints them by frequency, then alphabetically. */
     private static void printWordFrequencies(String paragraph) {
         Map<String, Integer> frequencies = new TreeMap<>();
+        // Split on runs of non-letter/non-digit characters so punctuation is not part of a word.
         String[] words = paragraph.toLowerCase().split("[^\\p{L}\\p{N}]+");
         for (String word : words) {
             if (!word.isEmpty()) {
@@ -68,6 +74,7 @@ public class Lab8 {
         }
 
         List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(frequencies.entrySet());
+        // Apply a secondary alphabetical order so equal counts are displayed consistently.
         sortedEntries.sort(Map.Entry.<String, Integer>comparingByValue(Comparator.reverseOrder())
                 .thenComparing(Map.Entry.comparingByKey()));
 
